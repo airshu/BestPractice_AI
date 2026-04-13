@@ -1,0 +1,16 @@
+# CrewAI RAG 示例依赖
+
+# Core
+crewai>=0.30.0
+langchain>=0.1.0
+langchain-community>=0.0.20
+langchain-openai>=0.0.5
+
+# Vector Store
+chromadb>=0.4.22
+
+# Document Processing
+tiktoken>=0.5.0
+
+# Environment
+python-dotenv>=1.0.0
