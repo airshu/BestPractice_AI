@@ -1,0 +1,378 @@
+{
+  "timestamp": "2026-04-14T14:45:08.024632",
+  "model": "coding-glm-5.1-free",
+  "base_url": "https://aihubmix.com/v1",
+  "sample_size": 20,
+  "decision": {
+    "score_v1": 1.0,
+    "score_v2": 0.0,
+    "winner": "v1",
+    "deltas": {
+      "intent_precision": -1.0,
+      "intent_recall": -1.0,
+      "intent_f1": -1.0,
+      "urgency_accuracy": -1.0,
+      "next_action_pass_rate": -1.0
+    }
+  },
+  "report_v1": {
+    "coverage": {
+      "gold_count": 20,
+      "prediction_count": 5,
+      "evaluated_count": 5,
+      "missing_prediction_ids": [
+        "cmt_006",
+        "cmt_007",
+        "cmt_008",
+        "cmt_009",
+        "cmt_010",
+        "cmt_011",
+        "cmt_012",
+        "cmt_013",
+        "cmt_014",
+        "cmt_015",
+        "cmt_016",
+        "cmt_017",
+        "cmt_018",
+        "cmt_019",
+        "cmt_020"
+      ],
+      "extra_prediction_ids": []
+    },
+    "metrics": {
+      "intent_precision": 1.0,
+      "intent_recall": 1.0,
+      "intent_f1": 1.0,
+      "urgency_accuracy": 1.0,
+      "next_action_pass_rate": 1.0
+    },
+    "details": [
+      {
+        "id": "cmt_001",
+        "predicted_intents": [
+          "exchange_request",
+          "product_defect"
+        ],
+        "gold_intents": [
+          "exchange_request",
+          "product_defect"
+        ],
+        "missed_intents": [],
+        "extra_intents": [],
+        "predicted_urgency": "high",
+        "gold_urgency": "high",
+        "urgency_correct": true,
+        "next_action": "联系用户核实商品划痕并安排换货",
+        "next_action_check": {
+          "passed": true,
+          "has_value": true,
+          "within_length": true,
+          "actionable": true
+        }
+      },
+      {
+        "id": "cmt_002",
+        "predicted_intents": [
+          "complaint",
+          "product_defect",
+          "refund_request"
+        ],
+        "gold_intents": [
+          "complaint",
+          "product_defect",
+          "refund_request"
+        ],
+        "missed_intents": [],
+        "extra_intents": [],
+        "predicted_urgency": "high",
+        "gold_urgency": "high",
+        "urgency_correct": true,
+        "next_action": "联系用户致歉并核实故障，办理退款",
+        "next_action_check": {
+          "passed": true,
+          "has_value": true,
+          "within_length": true,
+          "actionable": true
+        }
+      },
+      {
+        "id": "cmt_003",
+        "predicted_intents": [],
+        "gold_intents": [],
+        "missed_intents": [],
+        "extra_intents": [],
+        "predicted_urgency": "low",
+        "gold_urgency": "low",
+        "urgency_correct": true,
+        "next_action": "记录好评并回复感谢",
+        "next_action_check": {
+          "passed": true,
+          "has_value": true,
+          "within_length": true,
+          "actionable": true
+        }
+      },
+      {
+        "id": "cmt_004",
+        "predicted_intents": [
+          "manual_support"
+        ],
+        "gold_intents": [
+          "manual_support"
+        ],
+        "missed_intents": [],
+        "extra_intents": [],
+        "predicted_urgency": "low",
+        "gold_urgency": "low",
+        "urgency_correct": true,
+        "next_action": "发送中文版电子说明书给用户",
+        "next_action_check": {
+          "passed": true,
+          "has_value": true,
+          "within_length": true,
+          "actionable": true
+        }
+      },
+      {
+        "id": "cmt_005",
+        "predicted_intents": [
+          "exchange_request",
+          "product_defect"
+        ],
+        "gold_intents": [
+          "exchange_request",
+          "product_defect"
+        ],
+        "missed_intents": [],
+        "extra_intents": [],
+        "predicted_urgency": "high",
+        "gold_urgency": "high",
+        "urgency_correct": true,
+        "next_action": "联系用户核实故障并安排换货",
+        "next_action_check": {
+          "passed": true,
+          "has_value": true,
+          "within_length": true,
+          "actionable": true
+        }
+      }
+    ]
+  },
+  "report_v2": {
+    "coverage": {
+      "gold_count": 20,
+      "prediction_count": 0,
+      "evaluated_count": 0,
+      "missing_prediction_ids": [
+        "cmt_001",
+        "cmt_002",
+        "cmt_003",
+        "cmt_004",
+        "cmt_005",
+        "cmt_006",
+        "cmt_007",
+        "cmt_008",
+        "cmt_009",
+        "cmt_010",
+        "cmt_011",
+        "cmt_012",
+        "cmt_013",
+        "cmt_014",
+        "cmt_015",
+        "cmt_016",
+        "cmt_017",
+        "cmt_018",
+        "cmt_019",
+        "cmt_020"
+      ],
+      "extra_prediction_ids": []
+    },
+    "metrics": {
+      "intent_precision": 0.0,
+      "intent_recall": 0.0,
+      "intent_f1": 0.0,
+      "urgency_accuracy": 0.0,
+      "next_action_pass_rate": 0.0
+    },
+    "details": []
+  },
+  "failures_v1": [
+    {
+      "id": "cmt_006",
+      "error": "api_error",
+      "raw": "Error code: 429 - {'error': {'message': 'Sorry, you have reached the limit of the free model quota. Please switch to a paid model to enjoy unlimited concurrency"
+    },
+    {
+      "id": "cmt_007",
+      "error": "api_error",
+      "raw": "Error code: 429 - {'error': {'message': 'Sorry, you have reached the limit of the free model quota. Please switch to a paid model to enjoy unlimited concurrency"
+    },
+    {
+      "id": "cmt_008",
+      "error": "api_error",
+      "raw": "Error code: 429 - {'error': {'message': 'Sorry, you have reached the limit of the free model quota. Please switch to a paid model to enjoy unlimited concurrency"
+    },
+    {
+      "id": "cmt_009",
+      "error": "api_error",
+      "raw": "Error code: 429 - {'error': {'message': 'Sorry, you have reached the limit of the free model quota. Please switch to a paid model to enjoy unlimited concurrency"
+    },
+    {
+      "id": "cmt_010",
+      "error": "api_error",
+      "raw": "Error code: 429 - {'error': {'message': 'Sorry, you have reached the limit of the free model quota. Please switch to a paid model to enjoy unlimited concurrency"
+    },
+    {
+      "id": "cmt_011",
+      "error": "api_error",
+      "raw": "Error code: 429 - {'error': {'message': 'Sorry, you have reached the limit of the free model quota. Please switch to a paid model to enjoy unlimited concurrency"
+    },
+    {
+      "id": "cmt_012",
+      "error": "api_error",
+      "raw": "Error code: 429 - {'error': {'message': 'Sorry, you have reached the limit of the free model quota. Please switch to a paid model to enjoy unlimited concurrency"
+    },
+    {
+      "id": "cmt_013",
+      "error": "api_error",
+      "raw": "Error code: 429 - {'error': {'message': 'Sorry, you have reached the limit of the free model quota. Please switch to a paid model to enjoy unlimited concurrency"
+    },
+    {
+      "id": "cmt_014",
+      "error": "api_error",
+      "raw": "Error code: 429 - {'error': {'message': 'Sorry, you have reached the limit of the free model quota. Please switch to a paid model to enjoy unlimited concurrency"
+    },
+    {
+      "id": "cmt_015",
+      "error": "api_error",
+      "raw": "Error code: 429 - {'error': {'message': 'Sorry, you have reached the limit of the free model quota. Please switch to a paid model to enjoy unlimited concurrency"
+    },
+    {
+      "id": "cmt_016",
+      "error": "api_error",
+      "raw": "Error code: 429 - {'error': {'message': 'Sorry, you have reached the limit of the free model quota. Please switch to a paid model to enjoy unlimited concurrency"
+    },
+    {
+      "id": "cmt_017",
+      "error": "api_error",
+      "raw": "Error code: 429 - {'error': {'message': 'Sorry, you have reached the limit of the free model quota. Please switch to a paid model to enjoy unlimited concurrency"
+    },
+    {
+      "id": "cmt_018",
+      "error": "api_error",
+      "raw": "Error code: 429 - {'error': {'message': 'Sorry, you have reached the limit of the free model quota. Please switch to a paid model to enjoy unlimited concurrency"
+    },
+    {
+      "id": "cmt_019",
+      "error": "api_error",
+      "raw": "Error code: 429 - {'error': {'message': 'Sorry, you have reached the limit of the free model quota. Please switch to a paid model to enjoy unlimited concurrency"
+    },
+    {
+      "id": "cmt_020",
+      "error": "api_error",
+      "raw": "Error code: 429 - {'error': {'message': 'Sorry, you have reached the limit of the free model quota. Please switch to a paid model to enjoy unlimited concurrency"
+    }
+  ],
+  "failures_v2": [
+    {
+      "id": "cmt_001",
+      "error": "api_error",
+      "raw": "Error code: 429 - {'error': {'message': 'Sorry, you have reached the limit of the free model quota. Please switch to a paid model to enjoy unlimited concurrency"
+    },
+    {
+      "id": "cmt_002",
+      "error": "api_error",
+      "raw": "Error code: 429 - {'error': {'message': 'Sorry, you have reached the limit of the free model quota. Please switch to a paid model to enjoy unlimited concurrency"
+    },
+    {
+      "id": "cmt_003",
+      "error": "api_error",
+      "raw": "Error code: 429 - {'error': {'message': 'Sorry, you have reached the limit of the free model quota. Please switch to a paid model to enjoy unlimited concurrency"
+    },
+    {
+      "id": "cmt_004",
+      "error": "api_error",
+      "raw": "Error code: 429 - {'error': {'message': 'Sorry, you have reached the limit of the free model quota. Please switch to a paid model to enjoy unlimited concurrency"
+    },
+    {
+      "id": "cmt_005",
+      "error": "api_error",
+      "raw": "Error code: 429 - {'error': {'message': 'Sorry, you have reached the limit of the free model quota. Please switch to a paid model to enjoy unlimited concurrency"
+    },
+    {
+      "id": "cmt_006",
+      "error": "api_error",
+      "raw": "Error code: 429 - {'error': {'message': 'Sorry, you have reached the limit of the free model quota. Please switch to a paid model to enjoy unlimited concurrency"
+    },
+    {
+      "id": "cmt_007",
+      "error": "api_error",
+      "raw": "Error code: 429 - {'error': {'message': 'Sorry, you have reached the limit of the free model quota. Please switch to a paid model to enjoy unlimited concurrency"
+    },
+    {
+      "id": "cmt_008",
+      "error": "api_error",
+      "raw": "Error code: 429 - {'error': {'message': 'Sorry, you have reached the limit of the free model quota. Please switch to a paid model to enjoy unlimited concurrency"
+    },
+    {
+      "id": "cmt_009",
+      "error": "api_error",
+      "raw": "Error code: 429 - {'error': {'message': 'Sorry, you have reached the limit of the free model quota. Please switch to a paid model to enjoy unlimited concurrency"
+    },
+    {
+      "id": "cmt_010",
+      "error": "api_error",
+      "raw": "Error code: 429 - {'error': {'message': 'Sorry, you have reached the limit of the free model quota. Please switch to a paid model to enjoy unlimited concurrency"
+    },
+    {
+      "id": "cmt_011",
+      "error": "api_error",
+      "raw": "Error code: 429 - {'error': {'message': 'Sorry, you have reached the limit of the free model quota. Please switch to a paid model to enjoy unlimited concurrency"
+    },
+    {
+      "id": "cmt_012",
+      "error": "api_error",
+      "raw": "Error code: 429 - {'error': {'message': 'Sorry, you have reached the limit of the free model quota. Please switch to a paid model to enjoy unlimited concurrency"
+    },
+    {
+      "id": "cmt_013",
+      "error": "api_error",
+      "raw": "Error code: 429 - {'error': {'message': 'Sorry, you have reached the limit of the free model quota. Please switch to a paid model to enjoy unlimited concurrency"
+    },
+    {
+      "id": "cmt_014",
+      "error": "api_error",
+      "raw": "Error code: 429 - {'error': {'message': 'Sorry, you have reached the limit of the free model quota. Please switch to a paid model to enjoy unlimited concurrency"
+    },
+    {
+      "id": "cmt_015",
+      "error": "api_error",
+      "raw": "Error code: 429 - {'error': {'message': 'Sorry, you have reached the limit of the free model quota. Please switch to a paid model to enjoy unlimited concurrency"
+    },
+    {
+      "id": "cmt_016",
+      "error": "api_error",
+      "raw": "Error code: 429 - {'error': {'message': 'Sorry, you have reached the limit of the free model quota. Please switch to a paid model to enjoy unlimited concurrency"
+    },
+    {
+      "id": "cmt_017",
+      "error": "api_error",
+      "raw": "Error code: 429 - {'error': {'message': 'Sorry, you have reached the limit of the free model quota. Please switch to a paid model to enjoy unlimited concurrency"
+    },
+    {
+      "id": "cmt_018",
+      "error": "api_error",
+      "raw": "Error code: 429 - {'error': {'message': 'Sorry, you have reached the limit of the free model quota. Please switch to a paid model to enjoy unlimited concurrency"
+    },
+    {
+      "id": "cmt_019",
+      "error": "api_error",
+      "raw": "Error code: 429 - {'error': {'message': 'Sorry, you have reached the limit of the free model quota. Please switch to a paid model to enjoy unlimited concurrency"
+    },
+    {
+      "id": "cmt_020",
+      "error": "api_error",
+      "raw": "Error code: 429 - {'error': {'message': 'Sorry, you have reached the limit of the free model quota. Please switch to a paid model to enjoy unlimited concurrency"
+    }
+  ]
+}

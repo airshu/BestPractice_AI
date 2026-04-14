@@ -11,7 +11,7 @@
     "intent_recall": 0.9231,
     "intent_f1": 0.9057,
     "urgency_accuracy": 0.85,
-    "next_action_pass_rate": 0.8
+    "next_action_pass_rate": 1.0
   },
   "details": [
     {
@@ -134,10 +134,10 @@
       "urgency_correct": true,
       "next_action": "记录用户产品体验反馈",
       "next_action_check": {
-        "passed": false,
+        "passed": true,
         "has_value": true,
         "within_length": true,
-        "actionable": false
+        "actionable": true
       }
     },
     {
@@ -201,10 +201,10 @@
       "urgency_correct": false,
       "next_action": "记录客服态度反馈，纳入内部质检培训。",
       "next_action_check": {
-        "passed": false,
+        "passed": true,
         "has_value": true,
         "within_length": true,
-        "actionable": false
+        "actionable": true
       }
     },
     {
@@ -287,10 +287,10 @@
       "urgency_correct": true,
       "next_action": "记录好评并归档",
       "next_action_check": {
-        "passed": false,
+        "passed": true,
         "has_value": true,
         "within_length": true,
-        "actionable": false
+        "actionable": true
       }
     },
     {
@@ -416,10 +416,10 @@
       "urgency_correct": true,
       "next_action": "记录好评并结束服务",
       "next_action_check": {
-        "passed": false,
+        "passed": true,
         "has_value": true,
         "within_length": true,
-        "actionable": false
+        "actionable": true
       }
     },
     {

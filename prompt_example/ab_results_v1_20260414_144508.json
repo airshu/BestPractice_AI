@@ -1,0 +1,49 @@
+[
+  {
+    "id": "cmt_001",
+    "intents": [
+      "exchange_request",
+      "product_defect"
+    ],
+    "urgency": "high",
+    "confidence": 0.95,
+    "next_action": "联系用户核实商品划痕并安排换货"
+  },
+  {
+    "id": "cmt_002",
+    "intents": [
+      "refund_request",
+      "product_defect",
+      "complaint"
+    ],
+    "urgency": "high",
+    "confidence": 0.95,
+    "next_action": "联系用户致歉并核实故障，办理退款"
+  },
+  {
+    "id": "cmt_003",
+    "intents": [],
+    "urgency": "low",
+    "confidence": 0.95,
+    "next_action": "记录好评并回复感谢"
+  },
+  {
+    "id": "cmt_004",
+    "intents": [
+      "manual_support"
+    ],
+    "urgency": "low",
+    "confidence": 0.95,
+    "next_action": "发送中文版电子说明书给用户"
+  },
+  {
+    "id": "cmt_005",
+    "intents": [
+      "product_defect",
+      "exchange_request"
+    ],
+    "urgency": "high",
+    "confidence": 0.95,
+    "next_action": "联系用户核实故障并安排换货"
+  }
+]

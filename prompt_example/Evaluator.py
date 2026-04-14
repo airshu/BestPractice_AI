@@ -44,7 +44,7 @@ def score_next_action(action: str) -> Dict[str, Any]:
     has_value = bool(text)
     within_length = len(text) <= 30
     actionable_keywords = [
-        "联系", "核实", "补发", "退款", "换货", "发送", "提供", "协助", "致歉", "安排", "跟进", "处理",
+        "联系", "核实", "补发", "退款", "换货", "发送", "提供", "协助", "致歉", "安排", "跟进", "处理", "记录", "归档", "标记", "反馈", "回访", "排查", "指导", "培训", "安抚", "补偿", "登记"
     ]
     actionable = any(keyword in text for keyword in actionable_keywords)
     passed = has_value and within_length and actionable

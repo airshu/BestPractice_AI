@@ -1,0 +1,186 @@
+{
+  "timestamp": "2026-04-14T14:16:48.679857",
+  "model": "coding-glm-5.1-free",
+  "base_url": "https://aihubmix.com/v1",
+  "sample_size": 3,
+  "decision": {
+    "score_v1": 1.0,
+    "score_v2": 1.0,
+    "winner": "tie",
+    "deltas": {
+      "intent_precision": 0.0,
+      "intent_recall": 0.0,
+      "intent_f1": 0.0,
+      "urgency_accuracy": 0.0,
+      "next_action_pass_rate": 0.0
+    }
+  },
+  "report_v1": {
+    "coverage": {
+      "gold_count": 3,
+      "prediction_count": 3,
+      "evaluated_count": 3,
+      "missing_prediction_ids": [],
+      "extra_prediction_ids": []
+    },
+    "metrics": {
+      "intent_precision": 1.0,
+      "intent_recall": 1.0,
+      "intent_f1": 1.0,
+      "urgency_accuracy": 1.0,
+      "next_action_pass_rate": 1.0
+    },
+    "details": [
+      {
+        "id": "cmt_001",
+        "predicted_intents": [
+          "exchange_request",
+          "product_defect"
+        ],
+        "gold_intents": [
+          "exchange_request",
+          "product_defect"
+        ],
+        "missed_intents": [],
+        "extra_intents": [],
+        "predicted_urgency": "high",
+        "gold_urgency": "high",
+        "urgency_correct": true,
+        "next_action": "联系用户核实划痕情况并安排换货",
+        "next_action_check": {
+          "passed": true,
+          "has_value": true,
+          "within_length": true,
+          "actionable": true
+        }
+      },
+      {
+        "id": "cmt_002",
+        "predicted_intents": [
+          "complaint",
+          "product_defect",
+          "refund_request"
+        ],
+        "gold_intents": [
+          "complaint",
+          "product_defect",
+          "refund_request"
+        ],
+        "missed_intents": [],
+        "extra_intents": [],
+        "predicted_urgency": "high",
+        "gold_urgency": "high",
+        "urgency_correct": true,
+        "next_action": "联系用户确认故障并办理退款",
+        "next_action_check": {
+          "passed": true,
+          "has_value": true,
+          "within_length": true,
+          "actionable": true
+        }
+      },
+      {
+        "id": "cmt_003",
+        "predicted_intents": [],
+        "gold_intents": [],
+        "missed_intents": [],
+        "extra_intents": [],
+        "predicted_urgency": "low",
+        "gold_urgency": "low",
+        "urgency_correct": true,
+        "next_action": "记录好评并归档",
+        "next_action_check": {
+          "passed": true,
+          "has_value": true,
+          "within_length": true,
+          "actionable": true
+        }
+      }
+    ]
+  },
+  "report_v2": {
+    "coverage": {
+      "gold_count": 3,
+      "prediction_count": 3,
+      "evaluated_count": 3,
+      "missing_prediction_ids": [],
+      "extra_prediction_ids": []
+    },
+    "metrics": {
+      "intent_precision": 1.0,
+      "intent_recall": 1.0,
+      "intent_f1": 1.0,
+      "urgency_accuracy": 1.0,
+      "next_action_pass_rate": 1.0
+    },
+    "details": [
+      {
+        "id": "cmt_001",
+        "predicted_intents": [
+          "exchange_request",
+          "product_defect"
+        ],
+        "gold_intents": [
+          "exchange_request",
+          "product_defect"
+        ],
+        "missed_intents": [],
+        "extra_intents": [],
+        "predicted_urgency": "high",
+        "gold_urgency": "high",
+        "urgency_correct": true,
+        "next_action": "联系用户核实划痕并安排换货",
+        "next_action_check": {
+          "passed": true,
+          "has_value": true,
+          "within_length": true,
+          "actionable": true
+        }
+      },
+      {
+        "id": "cmt_002",
+        "predicted_intents": [
+          "complaint",
+          "product_defect",
+          "refund_request"
+        ],
+        "gold_intents": [
+          "complaint",
+          "product_defect",
+          "refund_request"
+        ],
+        "missed_intents": [],
+        "extra_intents": [],
+        "predicted_urgency": "high",
+        "gold_urgency": "high",
+        "urgency_correct": true,
+        "next_action": "联系用户致歉并核实办理退款",
+        "next_action_check": {
+          "passed": true,
+          "has_value": true,
+          "within_length": true,
+          "actionable": true
+        }
+      },
+      {
+        "id": "cmt_003",
+        "predicted_intents": [],
+        "gold_intents": [],
+        "missed_intents": [],
+        "extra_intents": [],
+        "predicted_urgency": "low",
+        "gold_urgency": "low",
+        "urgency_correct": true,
+        "next_action": "记录好评并归档",
+        "next_action_check": {
+          "passed": true,
+          "has_value": true,
+          "within_length": true,
+          "actionable": true
+        }
+      }
+    ]
+  },
+  "failures_v1": [],
+  "failures_v2": []
+}

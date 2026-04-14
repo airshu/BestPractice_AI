@@ -1,0 +1,30 @@
+[
+  {
+    "id": "cmt_001",
+    "intents": [
+      "exchange_request",
+      "product_defect"
+    ],
+    "urgency": "high",
+    "confidence": 0.95,
+    "next_action": "联系用户核实划痕情况并安排换货"
+  },
+  {
+    "id": "cmt_002",
+    "intents": [
+      "product_defect",
+      "complaint",
+      "refund_request"
+    ],
+    "urgency": "high",
+    "confidence": 0.99,
+    "next_action": "联系用户确认故障并办理退款"
+  },
+  {
+    "id": "cmt_003",
+    "intents": [],
+    "urgency": "low",
+    "confidence": 0.99,
+    "next_action": "记录好评并归档"
+  }
+]

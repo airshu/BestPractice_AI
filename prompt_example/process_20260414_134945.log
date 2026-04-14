@@ -1,0 +1,33 @@
+2026-04-14 13:49:45,957 [INFO] __main__: ============================================================
+2026-04-14 13:49:45,957 [INFO] __main__: [STARTUP] Customer Service Comment Processor Started
+2026-04-14 13:49:45,957 [INFO] __main__: ============================================================
+2026-04-14 13:49:46,016 [INFO] __main__: [Config] model=coding-glm-5.1-free, base_url=https://aihubmix.com/v1/
+2026-04-14 13:49:46,016 [INFO] __main__: [Input] Loaded 20 comments from comments.json
+2026-04-14 13:49:46,016 [INFO] __main__: [Resume] start_id=cmt_001, start_index=1, process_count=20
+2026-04-14 13:49:46,017 [INFO] __main__: [Mode] overwrite=True, ignore existing results/failed files
+2026-04-14 13:49:46,017 [INFO] __main__: [Processing] Starting processing of 20 items...
+2026-04-14 13:49:46,017 [INFO] __main__: [Processing] id=cmt_001, text_len=24
+2026-04-14 13:50:04,446 [INFO] httpx: HTTP Request: POST https://aihubmix.com/v1/responses "HTTP/1.1 200 OK"
+2026-04-14 13:50:04,476 [INFO] __main__: [Success] id=cmt_001, urgency=high, intents=['exchange_request', 'product_defect']
+2026-04-14 13:50:04,612 [INFO] __main__: [Processing] id=cmt_002, text_len=23
+2026-04-14 13:50:41,285 [INFO] httpx: HTTP Request: POST https://aihubmix.com/v1/responses "HTTP/1.1 200 OK"
+2026-04-14 13:50:41,297 [WARNING] __main__: [Timeout Warning] _call_with_timeout took 36.64s (limit=30.0s)
+2026-04-14 13:50:41,297 [INFO] __main__: [Success] id=cmt_002, urgency=high, intents=['refund_request', 'product_defect', 'complaint']
+2026-04-14 13:50:41,351 [INFO] __main__: [Processing] id=cmt_003, text_len=17
+2026-04-14 13:50:57,076 [INFO] httpx: HTTP Request: POST https://aihubmix.com/v1/responses "HTTP/1.1 200 OK"
+2026-04-14 13:50:57,080 [INFO] __main__: [Success] id=cmt_003, urgency=low, intents=[]
+2026-04-14 13:50:57,130 [INFO] __main__: [Processing] id=cmt_004, text_len=21
+2026-04-14 13:51:16,228 [INFO] httpx: HTTP Request: POST https://aihubmix.com/v1/responses "HTTP/1.1 200 OK"
+2026-04-14 13:51:16,232 [INFO] __main__: [Success] id=cmt_004, urgency=low, intents=['manual_support']
+2026-04-14 13:51:16,286 [INFO] __main__: [Processing] id=cmt_005, text_len=21
+2026-04-14 13:51:36,281 [INFO] httpx: HTTP Request: POST https://aihubmix.com/v1/responses "HTTP/1.1 200 OK"
+2026-04-14 13:51:36,302 [INFO] __main__: [Success] id=cmt_005, urgency=high, intents=['exchange_request', 'product_defect']
+2026-04-14 13:51:36,302 [INFO] __main__: [Progress] 5/20, run_success=5, run_failed=0, rate=0.05 items/sec
+2026-04-14 13:51:36,302 [INFO] __main__: [Checkpoint] Saved checkpoint 1 (success=5, failed=0)
+2026-04-14 13:51:36,356 [INFO] __main__: [Processing] id=cmt_006, text_len=21
+2026-04-14 13:51:55,321 [INFO] httpx: HTTP Request: POST https://aihubmix.com/v1/responses "HTTP/1.1 200 OK"
+2026-04-14 13:51:55,327 [INFO] __main__: [Success] id=cmt_006, urgency=low, intents=[]
+2026-04-14 13:51:55,377 [INFO] __main__: [Processing] id=cmt_007, text_len=23
+2026-04-14 13:52:09,223 [INFO] httpx: HTTP Request: POST https://aihubmix.com/v1/responses "HTTP/1.1 200 OK"
+2026-04-14 13:52:09,224 [INFO] __main__: [Success] id=cmt_007, urgency=high, intents=['product_defect']
+2026-04-14 13:52:09,276 [INFO] __main__: [Processing] id=cmt_008, text_len=23

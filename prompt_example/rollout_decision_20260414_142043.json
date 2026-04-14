@@ -1,0 +1,38 @@
+{
+  "timestamp": "2026-04-14T14:20:43.128105",
+  "sample_size": 3,
+  "decision": "keep_v1",
+  "gates": {
+    "min_sample_size": false,
+    "winner_is_v2": false,
+    "v2_intent_f1_floor": true,
+    "v2_urgency_floor": true,
+    "v2_action_floor": true,
+    "v2_not_worse_urgency": true,
+    "v2_not_worse_action": true,
+    "v2_fail_rate_ok": true
+  },
+  "failed_rules": [
+    "min_sample_size",
+    "winner_is_v2"
+  ],
+  "summary": {
+    "winner": "tie",
+    "score_v1": 1.0,
+    "score_v2": 1.0,
+    "fail_rate_v1": 0.0,
+    "fail_rate_v2": 0.0
+  },
+  "rollback_triggers": {
+    "intent_f1_drop": "v2 线上7日滚动 intent_f1 较 v1 下降 > 0.02",
+    "urgency_drop": "v2 线上 urgency_accuracy 低于 0.85 持续2天",
+    "action_drop": "v2 线上 next_action_pass_rate 低于 0.93",
+    "failure_spike": "v2 API失败率 > 8% 持续30分钟"
+  },
+  "rollout_plan": [
+    "10% 流量灰度 24 小时，观察关键指标",
+    "若全部通过，提升到 30% 流量 24 小时",
+    "若全部通过，提升到 70% 流量 24 小时",
+    "最后全量发布并保留 v1 回退开关"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "timestamp": "2026-04-14T14:11:18.396957",
+  "week": "2026-W16",
+  "summary": {
+    "days_monitored": 0,
+    "samples_reviewed": 0,
+    "discrepancies_found": 0,
+    "avg_discrepancy_rate": "0.0%"
+  },
+  "error_patterns": {},
+  "metric_trend": {
+    "start": {
+      "timestamp": "2026-04-14T14:11:18.393736",
+      "date": "2026-04-14",
+      "intent_precision": 0,
+      "intent_recall": 0,
+      "intent_f1": 0,
+      "urgency_accuracy": 0,
+      "next_action_pass": 0
+    },
+    "end": {
+      "timestamp": "2026-04-14T14:11:18.393736",
+      "date": "2026-04-14",
+      "intent_precision": 0,
+      "intent_recall": 0,
+      "intent_f1": 0,
+      "urgency_accuracy": 0,
+      "next_action_pass": 0
+    }
+  },
+  "recommendations": [
+    "3. 进行 A/B 测试：对比当前 prompt 与改进 prompt 的效果"
+  ],
+  "data_sources": {
+    "daily_reviews": 0,
+    "metric_points": 1
+  }
+}

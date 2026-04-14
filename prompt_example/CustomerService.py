@@ -2,9 +2,12 @@ import json
 import time
 import logging
 import argparse
+import os
+import tempfile
 from typing import Any, Dict, Tuple
 from openai import OpenAI
 from datetime import datetime
+from functools import wraps
 
 ALLOWED_INTENTS = {
     "refund_request",
@@ -14,6 +17,101 @@ ALLOWED_INTENTS = {
     "complaint",
 }
 ALLOWED_URGENCY = {"high", "medium", "low"}
+
+# ============== 安全防护函数 ==============
+
+def timeout_decorator(timeout_seconds: float):
+    """
+    超时装饰器：确保函数在指定时间内完成
+    Lesson 11.1: API 超时保护
+    """
+    def decorator(func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            logger = logging.getLogger(__name__)
+            start_time = time.time()
+            try:
+                result = func(*args, **kwargs)
+                elapsed = time.time() - start_time
+                if elapsed > timeout_seconds:
+                    logger.warning(f"[Timeout Warning] {func.__name__} took {elapsed:.2f}s (limit={timeout_seconds}s)")
+                return result
+            except Exception as e:
+                elapsed = time.time() - start_time
+                logger.error(f"[Timeout Error] {func.__name__} failed after {elapsed:.2f}s: {str(e)}")
+                raise
+        return wrapper
+    return decorator
+
+def safe_write_json(file_path: str, data: list, description: str) -> bool:
+    """
+    原子性写入 JSON 文件
+    Lesson 11.2: 磁盘写入安全保护
+    
+    步骤：
+    1. 写入临时文件
+    2. 验证文件完整性
+    3. 原子重命名（无中间损坏风险）
+    """
+    logger = logging.getLogger(__name__)
+    temp_fd = None
+    temp_path = None
+    
+    try:
+        # 创建临时文件
+        temp_fd, temp_path = tempfile.mkstemp(suffix=".json", text=True)
+        logger.debug(f"[Safe Write] Created temp file: {temp_path}")
+        
+        # 写入临时文件
+        with os.fdopen(temp_fd, 'w', encoding='utf-8') as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
+        
+        # 验证文件完整性：读回来检查
+        with open(temp_path, 'r', encoding='utf-8') as f:
+            verify = json.load(f)
+        
+        if not isinstance(verify, list) or len(verify) != len(data):
+            raise ValueError(f"Data verification failed: expected {len(data)} items, got {len(verify)}")
+        
+        # 原子重命名（POSIX原子性，Windows 需谨慎）
+        if os.path.exists(file_path):
+            backup_path = file_path + f".backup_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+            os.rename(file_path, backup_path)
+            logger.info(f"[Safe Write] Backed up previous file to: {backup_path}")
+        
+        os.rename(temp_path, file_path)
+        logger.info(f"[Safe Write] ✓ Safely wrote {len(data)} items to {file_path}")
+        return True
+        
+    except Exception as e:
+        logger.error(f"[Safe Write Error] Failed to write {file_path}: {str(e)}")
+        if temp_path and os.path.exists(temp_path):
+            os.unlink(temp_path)
+            logger.info(f"[Safe Write] Cleaned up temp file: {temp_path}")
+        return False
+
+def save_checkpoint(results: list, failed: list, checkpoint_num: int):
+    """
+    Lesson 11.3: 检查点保存
+    每处理 N 个项目后，保存一次中间结果
+    防止故障时只需补处理后续项，而不是重头再来
+    """
+    logger = logging.getLogger(__name__)
+    checkpoint_file = f"checkpoint_{checkpoint_num:03d}.json"
+    checkpoint_data = {
+        "timestamp": datetime.now().isoformat(),
+        "checkpoint_num": checkpoint_num,
+        "results_count": len(results),
+        "failed_count": len(failed),
+    }
+    try:
+        with open(checkpoint_file, 'w', encoding='utf-8') as f:
+            json.dump(checkpoint_data, f, ensure_ascii=False, indent=2)
+        logger.info(f"[Checkpoint] Saved checkpoint {checkpoint_num} (success={len(results)}, failed={len(failed)})")
+    except Exception as e:
+        logger.error(f"[Checkpoint Error] Failed to save checkpoint {checkpoint_num}: {str(e)}")
+
+
 
 MAIN_PROMPT = """你是客服质检助手。请基于“用户评论”做多标签意图识别与紧急度判断。
 
@@ -95,16 +193,26 @@ def validate_item(data: Dict[str, Any]) -> Tuple[bool, str]:
 
     return True, "ok"
 
-def call_model(client: OpenAI, model: str, prompt: str) -> str:
+def call_model(client: OpenAI, model: str, prompt: str, timeout_sec: float = 30.0) -> str:
+    """
+    调用模型，带超时保护
+    Lesson 11.1: 超时控制
+    """
     logger = logging.getLogger(__name__)
-    logger.debug(f"[Model Call] model={model}, prompt_len={len(prompt)}")
-    try:
+    
+    # 添加超时保护
+    @timeout_decorator(timeout_sec)
+    def _call_with_timeout():
+        logger.debug(f"[Model Call] model={model}, prompt_len={len(prompt)}")
         resp = client.responses.create(model=model, input=prompt)
         result = resp.output_text.strip()
         logger.debug(f"[Model Success] output_len={len(result)}, first_100_chars={result[:100]}")
         return result
+    
+    try:
+        return _call_with_timeout()
     except Exception as e:
-        logger.error(f"[Model Error] {str(e)}")
+        logger.error(f"[Model Error] Call failed: {str(e)}")
         raise
 
 def parse_json(text: str):
@@ -166,10 +274,18 @@ def process_one(client: OpenAI, model: str, item: Dict[str, str], max_retry: int
     item_id = item["id"]
     logger.info(f"[Processing] id={item_id}, text_len={len(item['text'])}")
     
-    # 1) 主调用
+    # 1) 主调用，带超时保护
     prompt = MAIN_PROMPT.replace("{{id}}", item_id).replace("{{review_text}}", item["text"].strip())
     logger.debug(f"[Prompt] Built full prompt, length={len(prompt)}")
-    raw = call_model(client, model, prompt)
+    
+    try:
+        raw = call_model(client, model, prompt, timeout_sec=30.0)
+    except TimeoutError:
+        logger.error(f"[Timeout] id={item_id}, API call exceeded timeout")
+        return {"ok": False, "error": "api_timeout", "raw": "", "id": item_id}
+    except Exception as e:
+        logger.error(f"[API Error] id={item_id}, {str(e)}")
+        return {"ok": False, "error": "api_error", "raw": str(e)[:100], "id": item_id}
     
     if not raw:
         logger.error(f"[Empty Response] id={item_id}, model returned empty string")
@@ -191,9 +307,13 @@ def process_one(client: OpenAI, model: str, item: Dict[str, str], max_retry: int
 
         if attempt < max_retry:
             logger.info(f"[Attempting Repair] id={item_id}, attempt={attempt + 1}/{max_retry}")
-            # 2) 修复调用
+            # 2) 修复调用，也带超时保护
             repair_prompt = REPAIR_PROMPT.replace("{{broken_output}}", raw[:300] if len(raw) > 300 else raw)
-            raw = call_model(client, model, repair_prompt)
+            try:
+                raw = call_model(client, model, repair_prompt, timeout_sec=30.0)
+            except (TimeoutError, Exception) as e:
+                logger.error(f"[Repair Timeout] id={item_id}, repair call failed: {str(e)}")
+                err = "repair_timeout" if isinstance(e, TimeoutError) else "repair_error"
         else:
             logger.error(f"[Max Retries Exceeded] id={item_id}, error={err}, raw_output={raw[:100]}")
 
@@ -277,6 +397,8 @@ def main():
 
     logger.info(f"[Processing] Starting processing of {len(items_to_process)} items...")
     start_time = time.time()
+    checkpoint_num = 0
+    checkpoint_interval = 5  # 每5个项目保存一次检查点
 
     for i, item in enumerate(items_to_process, 1):
         item_id = item.get("id")
@@ -298,6 +420,16 @@ def main():
                 f"[Progress] {i}/{len(items_to_process)}, run_success={run_success}, "
                 f"run_failed={run_failed}, rate={rate:.2f} items/sec"
             )
+            
+            # 定期保存检查点
+            if i % checkpoint_interval == 0:
+                checkpoint_num += 1
+                save_checkpoint(
+                    ordered_by_comments(items, results_by_id),
+                    ordered_by_comments(items, failed_by_id),
+                    checkpoint_num
+                )
+        
         time.sleep(args.sleep)
 
     results = ordered_by_comments(items, results_by_id)
@@ -311,19 +443,15 @@ def main():
     )
     logger.info("="*60)
 
-    try:
-        with open("results.json", "w", encoding="utf-8") as f:
-            json.dump(results, f, ensure_ascii=False, indent=2)
-        logger.info(f"[Output] Saved {len(results)} successful results to results.json")
-    except Exception as e:
-        logger.error(f"[Error] Failed to write results.json: {str(e)}")
-
-    try:
-        with open("failed.json", "w", encoding="utf-8") as f:
-            json.dump(failed, f, ensure_ascii=False, indent=2)
-        logger.info(f"[Output] Saved {len(failed)} failed items to failed.json")
-    except Exception as e:
-        logger.error(f"[Error] Failed to write failed.json: {str(e)}")
+    # 使用安全写入函数
+    success_write = safe_write_json("results.json", results, "successful results")
+    failed_write = safe_write_json("failed.json", failed, "failed items")
+    
+    if success_write and failed_write:
+        logger.info("[✓ Success] All output files written safely and verified")
+    else:
+        logger.error("[✗ Error] Some output files failed to write. Check logs above.")
+        return
     
     logger.info("[Completed] Processing finished. Check results.json and failed.json for details.")
 

@@ -1,0 +1,21 @@
+{
+  "timestamp": "2026-04-14T14:23:11.364457",
+  "current_stage": 10,
+  "target_stage": 30,
+  "recommendation": "hold_stage",
+  "checks": {
+    "gate_allow_promote": false,
+    "no_failed_gate_rule": false,
+    "drift_not_critical": true,
+    "drift_alerts_le_1": true
+  },
+  "reasons": [
+    "A/B门禁未允许发布",
+    "存在门禁失败规则: min_sample_size, winner_is_v2"
+  ],
+  "inputs": {
+    "rollout_decision": "keep_v1",
+    "drift_alert_level": "OK",
+    "drift_alerts_count": 0
+  }
+}

@@ -1,0 +1,4 @@
+2026-04-14 13:48:12,268 [INFO] __main__: ============================================================
+2026-04-14 13:48:12,268 [INFO] __main__: [STARTUP] Customer Service Comment Processor Started
+2026-04-14 13:48:12,268 [INFO] __main__: ============================================================
+2026-04-14 13:48:12,268 [ERROR] __main__: [Error] Missing environment variable: 'OPENAI_API_KEY'
