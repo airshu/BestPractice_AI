@@ -1,0 +1,63 @@
+2026-04-14 11:10:10,241 [INFO] __main__: ============================================================
+2026-04-14 11:10:10,241 [INFO] __main__: [STARTUP] Customer Service Comment Processor Started
+2026-04-14 11:10:10,241 [INFO] __main__: ============================================================
+2026-04-14 11:10:10,308 [INFO] __main__: [Config] model=coding-glm-5.1-free, base_url=https://aihubmix.com/v1/
+2026-04-14 11:10:10,309 [INFO] __main__: [Input] Loaded 20 comments from comments.json
+2026-04-14 11:10:10,309 [INFO] __main__: [Resume] start_id=cmt_006, start_index=6, process_count=15
+2026-04-14 11:10:10,310 [INFO] __main__: [Mode] resume merge enabled, existing_results=20, existing_failed=0
+2026-04-14 11:10:10,310 [INFO] __main__: [Processing] Starting processing of 15 items...
+2026-04-14 11:10:10,310 [INFO] __main__: [Processing] id=cmt_006, text_len=21
+2026-04-14 11:10:56,034 [INFO] httpx: HTTP Request: POST https://aihubmix.com/v1/responses "HTTP/1.1 200 OK"
+2026-04-14 11:10:56,069 [INFO] __main__: [Success] id=cmt_006, urgency=low, intents=[]
+2026-04-14 11:10:56,173 [INFO] __main__: [Processing] id=cmt_007, text_len=23
+2026-04-14 11:11:16,515 [INFO] httpx: HTTP Request: POST https://aihubmix.com/v1/responses "HTTP/1.1 200 OK"
+2026-04-14 11:11:16,516 [INFO] __main__: [Success] id=cmt_007, urgency=high, intents=['product_defect']
+2026-04-14 11:11:16,620 [INFO] __main__: [Processing] id=cmt_008, text_len=23
+2026-04-14 11:11:35,179 [INFO] httpx: HTTP Request: POST https://aihubmix.com/v1/responses "HTTP/1.1 200 OK"
+2026-04-14 11:11:35,180 [INFO] __main__: [Success] id=cmt_008, urgency=medium, intents=['product_defect']
+2026-04-14 11:11:35,285 [INFO] __main__: [Processing] id=cmt_009, text_len=21
+2026-04-14 11:12:04,520 [INFO] httpx: HTTP Request: POST https://aihubmix.com/v1/responses "HTTP/1.1 200 OK"
+2026-04-14 11:12:04,538 [INFO] __main__: [Success] id=cmt_009, urgency=low, intents=['complaint']
+2026-04-14 11:12:04,640 [INFO] __main__: [Processing] id=cmt_010, text_len=20
+2026-04-14 11:12:30,365 [INFO] httpx: HTTP Request: POST https://aihubmix.com/v1/responses "HTTP/1.1 200 OK"
+2026-04-14 11:12:30,381 [INFO] __main__: [Success] id=cmt_010, urgency=high, intents=['refund_request', 'product_defect', 'complaint']
+2026-04-14 11:12:30,381 [INFO] __main__: [Progress] 5/15, run_success=5, run_failed=0, rate=0.04 items/sec
+2026-04-14 11:12:30,489 [INFO] __main__: [Processing] id=cmt_011, text_len=23
+2026-04-14 11:12:47,449 [INFO] httpx: HTTP Request: POST https://aihubmix.com/v1/responses "HTTP/1.1 200 OK"
+2026-04-14 11:12:47,453 [INFO] __main__: [Success] id=cmt_011, urgency=low, intents=['manual_support']
+2026-04-14 11:12:47,559 [INFO] __main__: [Processing] id=cmt_012, text_len=24
+2026-04-14 11:13:14,876 [INFO] httpx: HTTP Request: POST https://aihubmix.com/v1/responses "HTTP/1.1 200 OK"
+2026-04-14 11:13:14,890 [INFO] __main__: [Success] id=cmt_012, urgency=high, intents=['product_defect', 'complaint']
+2026-04-14 11:13:14,994 [INFO] __main__: [Processing] id=cmt_013, text_len=18
+2026-04-14 11:13:39,422 [INFO] httpx: HTTP Request: POST https://aihubmix.com/v1/responses "HTTP/1.1 200 OK"
+2026-04-14 11:13:39,432 [INFO] __main__: [Success] id=cmt_013, urgency=low, intents=[]
+2026-04-14 11:13:39,542 [INFO] __main__: [Processing] id=cmt_014, text_len=21
+2026-04-14 11:14:04,512 [INFO] httpx: HTTP Request: POST https://aihubmix.com/v1/responses "HTTP/1.1 200 OK"
+2026-04-14 11:14:04,520 [INFO] __main__: [Success] id=cmt_014, urgency=medium, intents=['refund_request', 'complaint']
+2026-04-14 11:14:04,624 [INFO] __main__: [Processing] id=cmt_015, text_len=19
+2026-04-14 11:14:44,835 [INFO] httpx: HTTP Request: POST https://aihubmix.com/v1/responses "HTTP/1.1 200 OK"
+2026-04-14 11:14:44,847 [INFO] __main__: [Success] id=cmt_015, urgency=medium, intents=['product_defect', 'exchange_request']
+2026-04-14 11:14:44,848 [INFO] __main__: [Progress] 10/15, run_success=10, run_failed=0, rate=0.04 items/sec
+2026-04-14 11:14:44,948 [INFO] __main__: [Processing] id=cmt_016, text_len=17
+2026-04-14 11:15:18,762 [INFO] httpx: HTTP Request: POST https://aihubmix.com/v1/responses "HTTP/1.1 200 OK"
+2026-04-14 11:15:18,775 [INFO] __main__: [Success] id=cmt_016, urgency=low, intents=['product_defect']
+2026-04-14 11:15:18,879 [INFO] __main__: [Processing] id=cmt_017, text_len=21
+2026-04-14 11:15:44,601 [INFO] httpx: HTTP Request: POST https://aihubmix.com/v1/responses "HTTP/1.1 200 OK"
+2026-04-14 11:15:44,606 [INFO] __main__: [Success] id=cmt_017, urgency=medium, intents=['complaint']
+2026-04-14 11:15:44,710 [INFO] __main__: [Processing] id=cmt_018, text_len=19
+2026-04-14 11:16:18,160 [INFO] httpx: HTTP Request: POST https://aihubmix.com/v1/responses "HTTP/1.1 200 OK"
+2026-04-14 11:16:18,173 [INFO] __main__: [Success] id=cmt_018, urgency=high, intents=['product_defect', 'complaint']
+2026-04-14 11:16:18,280 [INFO] __main__: [Processing] id=cmt_019, text_len=14
+2026-04-14 11:16:51,222 [INFO] httpx: HTTP Request: POST https://aihubmix.com/v1/responses "HTTP/1.1 200 OK"
+2026-04-14 11:16:51,230 [INFO] __main__: [Success] id=cmt_019, urgency=low, intents=[]
+2026-04-14 11:16:51,336 [INFO] __main__: [Processing] id=cmt_020, text_len=23
+2026-04-14 11:17:44,163 [INFO] httpx: HTTP Request: POST https://aihubmix.com/v1/responses "HTTP/1.1 200 OK"
+2026-04-14 11:17:44,175 [INFO] __main__: [Success] id=cmt_020, urgency=medium, intents=['product_defect', 'complaint']
+2026-04-14 11:17:44,175 [INFO] __main__: [Progress] 15/15, run_success=15, run_failed=0, rate=0.03 items/sec
+2026-04-14 11:17:44,280 [INFO] __main__: 
+============================================================
+2026-04-14 11:17:44,280 [INFO] __main__: [Summary] ThisRun=15, run_success=15, run_failed=0, merged_success=20, merged_failed=0, Time=454.0s
+2026-04-14 11:17:44,280 [INFO] __main__: ============================================================
+2026-04-14 11:17:44,283 [INFO] __main__: [Output] Saved 20 successful results to results.json
+2026-04-14 11:17:44,283 [INFO] __main__: [Output] Saved 0 failed items to failed.json
+2026-04-14 11:17:44,284 [INFO] __main__: [Completed] Processing finished. Check results.json and failed.json for details.

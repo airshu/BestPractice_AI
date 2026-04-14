@@ -1,0 +1,453 @@
+{
+  "coverage": {
+    "gold_count": 20,
+    "prediction_count": 20,
+    "evaluated_count": 20,
+    "missing_prediction_ids": [],
+    "extra_prediction_ids": []
+  },
+  "metrics": {
+    "intent_precision": 0.8889,
+    "intent_recall": 0.9231,
+    "intent_f1": 0.9057,
+    "urgency_accuracy": 0.85,
+    "next_action_pass_rate": 0.8
+  },
+  "details": [
+    {
+      "id": "cmt_001",
+      "predicted_intents": [
+        "exchange_request",
+        "product_defect"
+      ],
+      "gold_intents": [
+        "exchange_request",
+        "product_defect"
+      ],
+      "missed_intents": [],
+      "extra_intents": [],
+      "predicted_urgency": "high",
+      "gold_urgency": "high",
+      "urgency_correct": true,
+      "next_action": "联系客户核实划痕照片并加急办理换货",
+      "next_action_check": {
+        "passed": true,
+        "has_value": true,
+        "within_length": true,
+        "actionable": true
+      }
+    },
+    {
+      "id": "cmt_002",
+      "predicted_intents": [
+        "complaint",
+        "product_defect",
+        "refund_request"
+      ],
+      "gold_intents": [
+        "complaint",
+        "product_defect",
+        "refund_request"
+      ],
+      "missed_intents": [],
+      "extra_intents": [],
+      "predicted_urgency": "high",
+      "gold_urgency": "high",
+      "urgency_correct": true,
+      "next_action": "立即致歉并优先办理退款退货。",
+      "next_action_check": {
+        "passed": true,
+        "has_value": true,
+        "within_length": true,
+        "actionable": true
+      }
+    },
+    {
+      "id": "cmt_003",
+      "predicted_intents": [],
+      "gold_intents": [],
+      "missed_intents": [],
+      "extra_intents": [],
+      "predicted_urgency": "low",
+      "gold_urgency": "low",
+      "urgency_correct": true,
+      "next_action": "发送感谢信并归档处理",
+      "next_action_check": {
+        "passed": true,
+        "has_value": true,
+        "within_length": true,
+        "actionable": true
+      }
+    },
+    {
+      "id": "cmt_004",
+      "predicted_intents": [
+        "manual_support"
+      ],
+      "gold_intents": [
+        "manual_support"
+      ],
+      "missed_intents": [],
+      "extra_intents": [],
+      "predicted_urgency": "low",
+      "gold_urgency": "low",
+      "urgency_correct": true,
+      "next_action": "发送中文版电子说明书给客户",
+      "next_action_check": {
+        "passed": true,
+        "has_value": true,
+        "within_length": true,
+        "actionable": true
+      }
+    },
+    {
+      "id": "cmt_005",
+      "predicted_intents": [
+        "exchange_request",
+        "product_defect"
+      ],
+      "gold_intents": [
+        "exchange_request",
+        "product_defect"
+      ],
+      "missed_intents": [],
+      "extra_intents": [],
+      "predicted_urgency": "high",
+      "gold_urgency": "high",
+      "urgency_correct": true,
+      "next_action": "联系用户核实故障情况并协助办理换货",
+      "next_action_check": {
+        "passed": true,
+        "has_value": true,
+        "within_length": true,
+        "actionable": true
+      }
+    },
+    {
+      "id": "cmt_006",
+      "predicted_intents": [],
+      "gold_intents": [],
+      "missed_intents": [],
+      "extra_intents": [],
+      "predicted_urgency": "low",
+      "gold_urgency": "low",
+      "urgency_correct": true,
+      "next_action": "记录用户产品体验反馈",
+      "next_action_check": {
+        "passed": false,
+        "has_value": true,
+        "within_length": true,
+        "actionable": false
+      }
+    },
+    {
+      "id": "cmt_007",
+      "predicted_intents": [
+        "product_defect"
+      ],
+      "gold_intents": [
+        "manual_support"
+      ],
+      "missed_intents": [
+        "manual_support"
+      ],
+      "extra_intents": [
+        "product_defect"
+      ],
+      "predicted_urgency": "high",
+      "gold_urgency": "high",
+      "urgency_correct": true,
+      "next_action": "核实缺件情况并安排加急补发配件。",
+      "next_action_check": {
+        "passed": true,
+        "has_value": true,
+        "within_length": true,
+        "actionable": true
+      }
+    },
+    {
+      "id": "cmt_008",
+      "predicted_intents": [
+        "product_defect"
+      ],
+      "gold_intents": [
+        "product_defect"
+      ],
+      "missed_intents": [],
+      "extra_intents": [],
+      "predicted_urgency": "medium",
+      "gold_urgency": "medium",
+      "urgency_correct": true,
+      "next_action": "联系用户核实故障并提供退换货方案",
+      "next_action_check": {
+        "passed": true,
+        "has_value": true,
+        "within_length": true,
+        "actionable": true
+      }
+    },
+    {
+      "id": "cmt_009",
+      "predicted_intents": [
+        "complaint"
+      ],
+      "gold_intents": [
+        "complaint"
+      ],
+      "missed_intents": [],
+      "extra_intents": [],
+      "predicted_urgency": "low",
+      "gold_urgency": "medium",
+      "urgency_correct": false,
+      "next_action": "记录客服态度反馈，纳入内部质检培训。",
+      "next_action_check": {
+        "passed": false,
+        "has_value": true,
+        "within_length": true,
+        "actionable": false
+      }
+    },
+    {
+      "id": "cmt_010",
+      "predicted_intents": [
+        "complaint",
+        "product_defect",
+        "refund_request"
+      ],
+      "gold_intents": [
+        "complaint",
+        "product_defect",
+        "refund_request"
+      ],
+      "missed_intents": [],
+      "extra_intents": [],
+      "predicted_urgency": "high",
+      "gold_urgency": "high",
+      "urgency_correct": true,
+      "next_action": "联系用户致歉并办理退货退款",
+      "next_action_check": {
+        "passed": true,
+        "has_value": true,
+        "within_length": true,
+        "actionable": true
+      }
+    },
+    {
+      "id": "cmt_011",
+      "predicted_intents": [
+        "manual_support"
+      ],
+      "gold_intents": [
+        "manual_support"
+      ],
+      "missed_intents": [],
+      "extra_intents": [],
+      "predicted_urgency": "low",
+      "gold_urgency": "low",
+      "urgency_correct": true,
+      "next_action": "发送产品快速入门教程",
+      "next_action_check": {
+        "passed": true,
+        "has_value": true,
+        "within_length": true,
+        "actionable": true
+      }
+    },
+    {
+      "id": "cmt_012",
+      "predicted_intents": [
+        "complaint",
+        "product_defect"
+      ],
+      "gold_intents": [
+        "complaint",
+        "product_defect"
+      ],
+      "missed_intents": [],
+      "extra_intents": [],
+      "predicted_urgency": "high",
+      "gold_urgency": "high",
+      "urgency_correct": true,
+      "next_action": "联系用户核实情况并安排退换货",
+      "next_action_check": {
+        "passed": true,
+        "has_value": true,
+        "within_length": true,
+        "actionable": true
+      }
+    },
+    {
+      "id": "cmt_013",
+      "predicted_intents": [],
+      "gold_intents": [],
+      "missed_intents": [],
+      "extra_intents": [],
+      "predicted_urgency": "low",
+      "gold_urgency": "low",
+      "urgency_correct": true,
+      "next_action": "记录好评并归档",
+      "next_action_check": {
+        "passed": false,
+        "has_value": true,
+        "within_length": true,
+        "actionable": false
+      }
+    },
+    {
+      "id": "cmt_014",
+      "predicted_intents": [
+        "complaint",
+        "refund_request"
+      ],
+      "gold_intents": [
+        "complaint"
+      ],
+      "missed_intents": [],
+      "extra_intents": [
+        "refund_request"
+      ],
+      "predicted_urgency": "medium",
+      "gold_urgency": "medium",
+      "urgency_correct": true,
+      "next_action": "核实降价情况，协商差价补偿事宜",
+      "next_action_check": {
+        "passed": true,
+        "has_value": true,
+        "within_length": true,
+        "actionable": true
+      }
+    },
+    {
+      "id": "cmt_015",
+      "predicted_intents": [
+        "exchange_request",
+        "product_defect"
+      ],
+      "gold_intents": [
+        "exchange_request",
+        "product_defect"
+      ],
+      "missed_intents": [],
+      "extra_intents": [],
+      "predicted_urgency": "medium",
+      "gold_urgency": "high",
+      "urgency_correct": false,
+      "next_action": "核实镜头灰尘情况并安排换货",
+      "next_action_check": {
+        "passed": true,
+        "has_value": true,
+        "within_length": true,
+        "actionable": true
+      }
+    },
+    {
+      "id": "cmt_016",
+      "predicted_intents": [
+        "product_defect"
+      ],
+      "gold_intents": [
+        "product_defect"
+      ],
+      "missed_intents": [],
+      "extra_intents": [],
+      "predicted_urgency": "low",
+      "gold_urgency": "low",
+      "urgency_correct": true,
+      "next_action": "记录死机反馈并跟进使用情况",
+      "next_action_check": {
+        "passed": true,
+        "has_value": true,
+        "within_length": true,
+        "actionable": true
+      }
+    },
+    {
+      "id": "cmt_017",
+      "predicted_intents": [
+        "complaint"
+      ],
+      "gold_intents": [
+        "complaint"
+      ],
+      "missed_intents": [],
+      "extra_intents": [],
+      "predicted_urgency": "medium",
+      "gold_urgency": "high",
+      "urgency_correct": false,
+      "next_action": "联系用户致歉，核实客服服务情况",
+      "next_action_check": {
+        "passed": true,
+        "has_value": true,
+        "within_length": true,
+        "actionable": true
+      }
+    },
+    {
+      "id": "cmt_018",
+      "predicted_intents": [
+        "complaint",
+        "product_defect"
+      ],
+      "gold_intents": [
+        "complaint",
+        "product_defect"
+      ],
+      "missed_intents": [],
+      "extra_intents": [],
+      "predicted_urgency": "high",
+      "gold_urgency": "high",
+      "urgency_correct": true,
+      "next_action": "联系用户核实漏水情况并协商退款或换货处理。",
+      "next_action_check": {
+        "passed": true,
+        "has_value": true,
+        "within_length": true,
+        "actionable": true
+      }
+    },
+    {
+      "id": "cmt_019",
+      "predicted_intents": [],
+      "gold_intents": [],
+      "missed_intents": [],
+      "extra_intents": [],
+      "predicted_urgency": "low",
+      "gold_urgency": "low",
+      "urgency_correct": true,
+      "next_action": "记录好评并结束服务",
+      "next_action_check": {
+        "passed": false,
+        "has_value": true,
+        "within_length": true,
+        "actionable": false
+      }
+    },
+    {
+      "id": "cmt_020",
+      "predicted_intents": [
+        "complaint",
+        "product_defect"
+      ],
+      "gold_intents": [
+        "manual_support",
+        "product_defect"
+      ],
+      "missed_intents": [
+        "manual_support"
+      ],
+      "extra_intents": [
+        "complaint"
+      ],
+      "predicted_urgency": "medium",
+      "gold_urgency": "medium",
+      "urgency_correct": true,
+      "next_action": "联系用户核实网络环境并提供连接指导",
+      "next_action_check": {
+        "passed": true,
+        "has_value": true,
+        "within_length": true,
+        "actionable": true
+      }
+    }
+  ]
+}

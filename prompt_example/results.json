@@ -1,0 +1,185 @@
+[
+  {
+    "id": "cmt_001",
+    "intents": [
+      "exchange_request",
+      "product_defect"
+    ],
+    "urgency": "high",
+    "confidence": 0.95,
+    "next_action": "联系客户核实划痕照片并加急办理换货"
+  },
+  {
+    "id": "cmt_002",
+    "intents": [
+      "refund_request",
+      "product_defect",
+      "complaint"
+    ],
+    "urgency": "high",
+    "confidence": 0.95,
+    "next_action": "立即致歉并优先办理退款退货。"
+  },
+  {
+    "id": "cmt_003",
+    "intents": [],
+    "urgency": "low",
+    "confidence": 1.0,
+    "next_action": "发送感谢信并归档处理"
+  },
+  {
+    "id": "cmt_004",
+    "intents": [
+      "manual_support"
+    ],
+    "urgency": "low",
+    "confidence": 0.95,
+    "next_action": "发送中文版电子说明书给客户"
+  },
+  {
+    "id": "cmt_005",
+    "intents": [
+      "exchange_request",
+      "product_defect"
+    ],
+    "urgency": "high",
+    "confidence": 0.95,
+    "next_action": "联系用户核实故障情况并协助办理换货"
+  },
+  {
+    "id": "cmt_006",
+    "intents": [],
+    "urgency": "low",
+    "confidence": 0.95,
+    "next_action": "记录用户产品体验反馈"
+  },
+  {
+    "id": "cmt_007",
+    "intents": [
+      "product_defect"
+    ],
+    "urgency": "high",
+    "confidence": 0.95,
+    "next_action": "核实缺件情况并安排加急补发配件。"
+  },
+  {
+    "id": "cmt_008",
+    "intents": [
+      "product_defect"
+    ],
+    "urgency": "medium",
+    "confidence": 0.95,
+    "next_action": "联系用户核实故障并提供退换货方案"
+  },
+  {
+    "id": "cmt_009",
+    "intents": [
+      "complaint"
+    ],
+    "urgency": "low",
+    "confidence": 0.9,
+    "next_action": "记录客服态度反馈，纳入内部质检培训。"
+  },
+  {
+    "id": "cmt_010",
+    "intents": [
+      "refund_request",
+      "product_defect",
+      "complaint"
+    ],
+    "urgency": "high",
+    "confidence": 0.95,
+    "next_action": "联系用户致歉并办理退货退款"
+  },
+  {
+    "id": "cmt_011",
+    "intents": [
+      "manual_support"
+    ],
+    "urgency": "low",
+    "confidence": 0.95,
+    "next_action": "发送产品快速入门教程"
+  },
+  {
+    "id": "cmt_012",
+    "intents": [
+      "product_defect",
+      "complaint"
+    ],
+    "urgency": "high",
+    "confidence": 0.98,
+    "next_action": "联系用户核实情况并安排退换货"
+  },
+  {
+    "id": "cmt_013",
+    "intents": [],
+    "urgency": "low",
+    "confidence": 0.99,
+    "next_action": "记录好评并归档"
+  },
+  {
+    "id": "cmt_014",
+    "intents": [
+      "refund_request",
+      "complaint"
+    ],
+    "urgency": "medium",
+    "confidence": 0.9,
+    "next_action": "核实降价情况，协商差价补偿事宜"
+  },
+  {
+    "id": "cmt_015",
+    "intents": [
+      "product_defect",
+      "exchange_request"
+    ],
+    "urgency": "medium",
+    "confidence": 0.95,
+    "next_action": "核实镜头灰尘情况并安排换货"
+  },
+  {
+    "id": "cmt_016",
+    "intents": [
+      "product_defect"
+    ],
+    "urgency": "low",
+    "confidence": 0.9,
+    "next_action": "记录死机反馈并跟进使用情况"
+  },
+  {
+    "id": "cmt_017",
+    "intents": [
+      "complaint"
+    ],
+    "urgency": "medium",
+    "confidence": 0.95,
+    "next_action": "联系用户致歉，核实客服服务情况"
+  },
+  {
+    "id": "cmt_018",
+    "intents": [
+      "product_defect",
+      "complaint"
+    ],
+    "urgency": "high",
+    "confidence": 0.95,
+    "next_action": "联系用户核实漏水情况并协商退款或换货处理。"
+  },
+  {
+    "id": "cmt_019",
+    "intents": [],
+    "urgency": "low",
+    "confidence": 0.99,
+    "next_action": "记录好评并结束服务"
+  },
+  {
+    "id": "cmt_020",
+    "intents": [
+      "product_defect",
+      "complaint"
+    ],
+    "urgency": "medium",
+    "confidence": 0.95,
+    "next_action": "联系用户核实网络环境并提供连接指导"
+  }
+]

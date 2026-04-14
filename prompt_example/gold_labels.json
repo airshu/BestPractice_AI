@@ -1,0 +1,102 @@
+[
+  {
+    "id": "cmt_001",
+    "intents": ["exchange_request", "product_defect"],
+    "urgency": "high"
+  },
+  {
+    "id": "cmt_002",
+    "intents": ["refund_request", "product_defect", "complaint"],
+    "urgency": "high"
+  },
+  {
+    "id": "cmt_003",
+    "intents": [],
+    "urgency": "low"
+  },
+  {
+    "id": "cmt_004",
+    "intents": ["manual_support"],
+    "urgency": "low"
+  },
+  {
+    "id": "cmt_005",
+    "intents": ["exchange_request", "product_defect"],
+    "urgency": "high"
+  },
+  {
+    "id": "cmt_006",
+    "intents": [],
+    "urgency": "low"
+  },
+  {
+    "id": "cmt_007",
+    "intents": ["manual_support"],
+    "urgency": "high"
+  },
+  {
+    "id": "cmt_008",
+    "intents": ["product_defect"],
+    "urgency": "medium"
+  },
+  {
+    "id": "cmt_009",
+    "intents": ["complaint"],
+    "urgency": "medium"
+  },
+  {
+    "id": "cmt_010",
+    "intents": ["refund_request", "product_defect", "complaint"],
+    "urgency": "high"
+  },
+  {
+    "id": "cmt_011",
+    "intents": ["manual_support"],
+    "urgency": "low"
+  },
+  {
+    "id": "cmt_012",
+    "intents": ["product_defect", "complaint"],
+    "urgency": "high"
+  },
+  {
+    "id": "cmt_013",
+    "intents": [],
+    "urgency": "low"
+  },
+  {
+    "id": "cmt_014",
+    "intents": ["complaint"],
+    "urgency": "medium"
+  },
+  {
+    "id": "cmt_015",
+    "intents": ["exchange_request", "product_defect"],
+    "urgency": "high"
+  },
+  {
+    "id": "cmt_016",
+    "intents": ["product_defect"],
+    "urgency": "low"
+  },
+  {
+    "id": "cmt_017",
+    "intents": ["complaint"],
+    "urgency": "high"
+  },
+  {
+    "id": "cmt_018",
+    "intents": ["product_defect", "complaint"],
+    "urgency": "high"
+  },
+  {
+    "id": "cmt_019",
+    "intents": [],
+    "urgency": "low"
+  },
+  {
+    "id": "cmt_020",
+    "intents": ["product_defect", "manual_support"],
+    "urgency": "medium"
+  }
+]
