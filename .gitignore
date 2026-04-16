@@ -2,3 +2,5 @@
 
 .env
 .vscode/
+
+learn_claude_code/__pycache__/

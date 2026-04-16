@@ -1,0 +1,13 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {"matcher": "*", "command": "echo '=== Session Started ==='"}
+    ],
+    "PreToolUse": [
+      {"matcher": "bash", "command": "echo 'PreToolUse: about to run bash' && exit 0"}
+    ],
+    "PostToolUse": [
+      {"matcher": "read_file", "command": "echo 'PostToolUse: finished reading' && exit 0"}
+    ]
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "example",
+  "mcpServers": {
+    "echo": {
+      "command": "/Users/xpeng/.pyenv/shims/python3",
+      "args": ["/Users/xpeng/AI/github/BestPractice_AI/learn_claude_code/echo_server.py"]
+    }
+  }
+}

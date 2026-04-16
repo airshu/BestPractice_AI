@@ -11,54 +11,61 @@ This file teaches the smallest useful coding-agent pattern:
 It intentionally keeps the loop small, but still makes the loop state explicit
 so later chapters can grow from the same structure.
 """
-import os
-import time
+
 import argparse
+import os
 import subprocess
+import time
 from dataclasses import dataclass
+
 from anthropic import Anthropic
 from dotenv import load_dotenv
+
 load_dotenv(override=True)
 
 
 def build_client() -> Anthropic:
-    base_url = os.getenv("ANTHROPIC_BASE_URL", "").strip()
-    auth_token = os.getenv("ANTHROPIC_AUTH_TOKEN")
+    base_url = os.getenv("ANTHROPIC_BASE_URL", "https://api.anthropic.com").strip()
+    auth_token = os.getenv("ANTHROPIC_AUTH_TOKEN") or os.getenv("ANTHROPIC_API_KEY")
 
     if not auth_token:
         raise RuntimeError(
-            "Missing auth token. Please set ANTHROPIC_AUTH_TOKEN"
+            "Missing auth token. Please set ANTHROPIC_AUTH_TOKEN or ANTHROPIC_API_KEY"
         )
 
     # Anthropic SDK 会自行拼接 /v1；若用户传入 .../v1 需要归一化避免 /v1/v1。
     if base_url.endswith("/v1"):
         base_url = base_url[:-3]
 
-    return Anthropic(auth_token=auth_token, base_url=base_url)
+    return Anthropic(api_key=auth_token, base_url=base_url)
 
 
 client = build_client()
 MODEL = (
     os.getenv("ANTHROPIC_MODEL_ID")
     or os.getenv("MODEL_ID")
-    or "claude-3-5-sonnet-latest"
+    or "claude-haiku-4-5-20251001"
 )
 
 if MODEL.lower().startswith("gpt-"):
-    MODEL = "claude-3-5-sonnet-latest"
+    MODEL = "claude-haiku-4-5-20251001"
 SYSTEM = (
     f"You are a coding agent at {os.getcwd()}. "
     "Use bash to inspect and change the workspace. Act first, then report clearly."
 )
-TOOLS = [{
-    "name": "bash",
-    "description": "Run a shell command in the current workspace.",
-    "input_schema": {
-        "type": "object",
-        "properties": {"command": {"type": "string"}},
-        "required": ["command"],
-    },
-}]
+TOOLS = [
+    {
+        "name": "bash",
+        "description": "Run a shell command in the current workspace.",
+        "input_schema": {
+            "type": "object",
+            "properties": {"command": {"type": "string"}},
+            "required": ["command"],
+        },
+    }
+]
+
+
 @dataclass
 class LoopState:
     # The minimal loop state: history, loop count, and why we continue.
@@ -92,6 +99,8 @@ def run_bash(command: str) -> str:
         return f"Error: {e}"
     output = (result.stdout + result.stderr).strip()
     return output[:50000] if output else "(no output)"
+
+
 def extract_text(content) -> str:
     if isinstance(content, str):
         return content.strip()
@@ -107,6 +116,8 @@ def extract_text(content) -> str:
         if text:
             texts.append(text)
     return "\n".join(texts).strip()
+
+
 def execute_tool_calls(response_content, state: LoopState) -> list[dict]:
     results = []
     for block in response_content:
@@ -118,12 +129,16 @@ def execute_tool_calls(response_content, state: LoopState) -> list[dict]:
         output = run_bash(command)
         print(output[:200])
         debug_log(state, f"tool_result id={block.id} output_len={len(output)}")
-        results.append({
-            "type": "tool_result",
-            "tool_use_id": block.id,
-            "content": output,
-        })
+        results.append(
+            {
+                "type": "tool_result",
+                "tool_use_id": block.id,
+                "content": output,
+            }
+        )
     return results
+
+
 def run_one_turn(state: LoopState) -> bool:
     start_ts = time.time()
     debug_log(state, f"request model={MODEL}")
@@ -138,9 +153,11 @@ def run_one_turn(state: LoopState) -> bool:
     except Exception as exc:
         err_text = (
             f"Model call failed: {exc}\n"
-            "Hint: verify ANTHROPIC_MODEL_ID is available on current gateway/account."
+            "Hint: verify ANTHROPIC_API_KEY/ANTHROPIC_AUTH_TOKEN, ANTHROPIC_BASE_URL, and model id."
         )
-        state.messages.append({"role": "assistant", "content": [{"type": "text", "text": err_text}]})
+        state.messages.append(
+            {"role": "assistant", "content": [{"type": "text", "text": err_text}]}
+        )
         state.transition_reason = None
         debug_log(state, f"request_failed latency={time.time() - start_ts:.2f}s")
         return False
@@ -161,6 +178,8 @@ def run_one_turn(state: LoopState) -> bool:
     state.turn_count += 1
     state.transition_reason = "tool_result"
     return True
+
+
 def agent_loop(state: LoopState) -> None:
     while run_one_turn(state):
         pass
